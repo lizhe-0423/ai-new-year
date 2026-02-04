@@ -15,10 +15,13 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Initialize OpenAI Client (Server-side)
 const apiKey = process.env.OPENAI_API_KEY;
 const baseURL = process.env.OPENAI_BASE_URL || 'https://api.deepseek.com';
 const model = process.env.AI_MODEL || 'deepseek-chat';
+
+if (!apiKey) {
+  console.warn('⚠️ Warning: OPENAI_API_KEY is not set in environment variables!');
+}
 
 const client = new OpenAI({
   apiKey: apiKey,
@@ -106,11 +109,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Only listen if run directly (not imported)
-if (import.meta.url === `file://${process.argv[1]}`) {
-  app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-  });
-}
+// Always listen when running locally
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
 
 export default app;
