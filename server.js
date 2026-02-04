@@ -109,9 +109,11 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Always listen when running locally
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+// Only listen if not running in Vercel
+if (process.env.VERCEL !== '1') {
+  app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+  });
+}
 
 export default app;
