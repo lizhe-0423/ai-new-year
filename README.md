@@ -1,5 +1,7 @@
 # AI 年味 (AI New Year Flavor) 🧧✨
 
+> 🏆 本项目旨在参加 **Trae Friends 首期挑战赛 ·「AI 年味创作赛」** (创意赛道)
+>
 > 用代码复活传统年俗，让 AI 更有年味儿！
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flizhe-0423%2Fai-new-year)
